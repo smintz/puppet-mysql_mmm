@@ -1,0 +1,5 @@
+<role reader>
+    hosts                   <%= scope.lookupvar('mysql_mmm::params::readers').join(", ") %>
+    ips                     <%= scope.lookupvar('mysql_mmm::params::readers_ips').join(", ") %>
+    mode                    balanced
+</role>

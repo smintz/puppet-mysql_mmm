@@ -1,0 +1,15 @@
+active_master_role          writer
+
+
+<host default>
+    cluster_interface       eth0
+
+    pid_path                /var/run/mmmd_agent.pid
+    bin_path                /usr/lib/mysql-mmm/
+
+    replication_user        replication
+    replication_password    replication_password
+
+    agent_user              mmm_agent
+    agent_password          agent_password
+</host>

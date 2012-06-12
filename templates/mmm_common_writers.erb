@@ -1,0 +1,5 @@
+<role writer>
+    hosts                   <%= scope.lookupvar('mysql_mmm::params::writers').join(', ') %>
+    ips                     <%= scope.lookupvar('mysql_mmm::params::writer_ip').join(', ') %>
+    mode                    exclusive
+</role>

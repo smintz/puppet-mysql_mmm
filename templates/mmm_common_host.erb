@@ -1,0 +1,17 @@
+<host <%= agent_hostname %>>
+    ip                      <%= agent_ip %>
+<% if scope.lookupvar('mysql_mmm::params::writers').include?(agent_hostname) 
+  peers = scope.lookupvar('mysql_mmm::params::writers')
+  i = peers.index(agent_hostname)
+  if i == 0
+    peer = peers[1]
+  else
+    peer = peers[0]
+  end
+%>
+    mode                    master
+    peer                    <%= peer %>
+<% else %>
+    mode                    slave
+<% end %>
+</host>
