@@ -5,7 +5,7 @@ include mmm_common.conf
     pid_path                /var/run/mmmd_mon.pid
     bin_path                /usr/libexec/mysql-mmm
     status_path             /var/lib/misc/mmmd_mon.status
-    ping_ips                192.168.99.21, 192.168.99.27
+    ping_ips                <%= scope.lookupvar('mysql_mmm::params::readers').join(', ') %>
 </monitor>
 
 <host default>
