@@ -7,9 +7,9 @@ active_master_role          writer
     pid_path                /var/run/mmmd_agent.pid
     bin_path                /usr/lib/mysql-mmm/
 
-    replication_user        replication
-    replication_password    replication_password
+    replication_user        <%= scope.lookupvar('mysql_mmm::params::replication_user') %>
+    replication_password    <%= scope.lookupvar('mysql_mmm::params::replication_password') %>
 
-    agent_user              mmm_agent
-    agent_password          agent_password
+    agent_user              <%= scope.lookupvar('mysql_mmm::params::agent_user') %>
+    agent_password          <%= scope.lookupvar('mysql_mmm::params::agent_password') %>
 </host>
